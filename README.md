@@ -3,6 +3,8 @@
 Webapp per organizzare le giornate a terra della crociera **UWSR** (Napoli → Livorno →
 Marsiglia → Barcellona → La Goletta/Tunisi → Palermo → Napoli).
 
+**In linea, senza installare niente:** [consulenzacontributi.github.io/port-planner-msc](https://consulenzacontributi.github.io/port-planner-msc/)
+
 ## Come si apre
 
 Doppio clic su `index.html`. Non serve installare niente, non serve un server, non serve internet
