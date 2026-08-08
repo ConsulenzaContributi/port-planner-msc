@@ -2,6 +2,15 @@
 
 Generalizzazione di **Port Planner** (il progetto crociera in questo stesso repository) a itinerari di viaggio qualsiasi: data di partenza, data di arrivo, più **tappe** ciascuna con i propri **giorni di permanenza** e un **alloggio**. Il motore riempie ogni giorno con attività vicine al luogo di pernotto, dentro il tempo e il budget disponibili — con l'aiuto di un agente AI.
 
+**In linea, senza installare niente:** [consulenzacontributi.github.io/port-planner-msc/travel](https://consulenzacontributi.github.io/port-planner-msc/travel/)
+
+**Versione 1.0.0** — vedi [CHANGELOG.md](CHANGELOG.md) per la cronologia completa.
+
+**Indice** — [Avvio rapido](#avvio-rapido) · [Struttura](#struttura) ·
+[Idee premium](#come-sono-organizzate-le-10-idee-premium) ·
+[Setup Supabase](#setup-supabase-opzionale-per-cloud--assistente-ai--gmail) ·
+[Cosa manca ancora](#cosa-manca-ancora-rispetto-a-un-prodotto-finito)
+
 Stessa filosofia del progetto crociera: **vanilla JS, nessun build step**, funziona offline, si apre con doppio clic o con un server statico qualsiasi.
 
 ## Avvio rapido
