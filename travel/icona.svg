@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0f766e"/>
+  <!-- l'orologio è il vero soggetto dell'app: il tempo che scade -->
+  <circle cx="256" cy="240" r="118" fill="none" stroke="#fff" stroke-width="26"/>
+  <path d="M256 168v78l54 34" fill="none" stroke="#fff" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M96 404c26 0 26 20 52 20s26-20 52-20 26 20 52 20 26-20 52-20 26 20 52 20 26-20 52-20"
+        fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round"/>
+</svg>

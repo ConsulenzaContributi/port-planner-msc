@@ -9,3 +9,7 @@ node_modules/
 
 # Sistema
 .DS_Store
+
+# Metadati locali della Supabase CLI (supabase link)
+supabase/.temp/
+travel/supabase/.temp/

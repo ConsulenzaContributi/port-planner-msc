@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Travel Planner — itinerari giorno per giorno</title>
+<meta name="theme-color" content="#0f766e">
+<link rel="stylesheet" href="css/app.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icona.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icona.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Travel Planner">
+</head>
+<body>
+
+<header id="hdr"></header>
+<nav id="tabs"></nav>
+<main id="main"></main>
+<div id="modal" class="modal hidden"></div>
+
+<!-- Dati: file JS puri, così l'app si apre con doppio clic senza server.
+     Sostituisci data/viaggio-esempio.js e data/attivita-*.js con il tuo
+     viaggio reale (o generali dall'agente AI / da un form "Nuovo viaggio"). -->
+<script src="data/viaggio-esempio.js"></script>
+<script src="data/supabase.js"></script>
+<script src="data/attivita-roma.js"></script>
+<script src="data/attivita-firenze.js"></script>
+
+<!-- Tempi reali da Google Maps (generato, opzionale, stesso meccanismo del
+     progetto crociera): se manca, il motore torna da solo alla stima
+     geometrica — niente si rompe. -->
+<script src="data/matrix.js" onerror="this.remove()"></script>
+
+<!-- Motore e interfaccia -->
+<script src="js/engine.js"></script>
+<script src="js/ui.js"></script>
+
+<!-- Feature premium: ognuna funziona in modo indipendente, si innesta senza
+     rompere nulla se non configurata (vedi commenti in ciascun file). -->
+<script src="js/budget.js"></script>
+<script src="js/meteo.js"></script>
+<script src="js/export.js"></script>
+<script src="js/prenotazioni.js"></script>
+<script src="js/voce.js"></script>
+<script src="js/ritmo-personalizzato.js"></script>
+<script src="js/pasti.js"></script>
+
+<!-- Assistente e agente. Parla con la Edge Function su Supabase se hai fatto
+     l'accesso, altrimenti con il proxy locale (server/llm-proxy.mjs, da
+     creare seguendo il pattern del progetto crociera). -->
+<script src="js/llm.js"></script>
+
+<!-- Cloud: accesso Google e sincronizzazione. Va DOPO ui.js e llm.js perché si
+     innesta su quelli. Senza configurazione o senza rete, non fa niente. -->
+<script src="js/cloud.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http'))
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+</script>
+
+</body>
+</html>
