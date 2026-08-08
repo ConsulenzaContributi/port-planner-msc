@@ -5,6 +5,16 @@ Marsiglia → Barcellona → La Goletta/Tunisi → Palermo → Napoli).
 
 **In linea, senza installare niente:** [consulenzacontributi.github.io/port-planner-msc](https://consulenzacontributi.github.io/port-planner-msc/)
 
+**Versione 1.0.0** — vedi [CHANGELOG.md](CHANGELOG.md) per la cronologia completa.
+
+**Indice** — [Come si apre](#come-si-apre) · [Cosa fa](#cosa-fa) ·
+[Aggiungere tappe](#aggiungere-tappe-tue) · [Assistente](#assistente-e-agente-proxy-llm) ·
+[Foto e guide](#foto-tabella-di-marcia-e-guida-punto-per-punto) ·
+[Email](#email-di-conferma-collegate-alla-scheda) ·
+[Sul telefono](#sul-telefono-con-laccesso-google) ·
+[Tempi reali](#tempi-di-percorrenza-reali-google-maps) · [File](#file) ·
+[Da riverificare prima di partire](#prima-di-partire--da-riverificare)
+
 ## Come si apre
 
 Doppio clic su `index.html`. Non serve installare niente, non serve un server, non serve internet
