@@ -22,7 +22,8 @@ window.POI_napoli = [
           "Il Gran Caffè Gambrinus all'angolo — un caffè al banco, in piedi"],
   tips:["Perfetto per la mattina dell'imbarco: 45 minuti, tutto a piedi, si torna in nave in 10 min.",
         "Il Maschio Angioino è letteralmente sulla strada tra la nave e la piazza."],
-  wc:"Nei bar", verificato:"2026-08-08", daVerificare:false
+  wc:"Nei bar", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Naples_galleria_umberto_I_bis.JPG/960px-Naples_galleria_umberto_I_bis.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Galleria Umberto I"}
 },
 
 {
@@ -41,7 +42,8 @@ window.POI_napoli = [
           "La Cappella Palatina","I camminamenti con vista sul porto e sulla nave"],
   tips:["⚠️ Chiuso la domenica — ma voi siete lì di sabato in entrambe le giornate. Bene.",
         "È a 5 minuti dalla Stazione Marittima: la tappa a minor costo di inserimento dell'itinerario."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Maschio_angioino1.JPG/960px-Maschio_angioino1.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Maschio Angioino"}
 },
 
 {
@@ -61,7 +63,8 @@ window.POI_napoli = [
           "Una sfogliatella riccia calda in una pasticceria storica della via"],
   tips:["💶 Un euro e trenta per uno dei posti più fotografati d'Europa: il miglior affare del viaggio.",
         "I Quartieri Spagnoli sono lì accanto: strade a scacchiera ripidissime, molto fotogeniche."],
-  wc:"Nei bar", verificato:"2026-08-08", daVerificare:false
+  wc:"Nei bar", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Toledo_%28Metropolitana_di_Napoli_L1%29.jpg/960px-Toledo_%28Metropolitana_di_Napoli_L1%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Toledo (metropolitana di Napoli)"}
 },
 
 {
@@ -101,7 +104,8 @@ window.POI_napoli = [
         "Ha senso solo il giorno dello SBARCO (G8), se restate a Napoli. Il giorno dell'imbarco è "+
         "troppo rischiosa con i bagagli e il check-in.",
         "Se avete mezza giornata al ritorno, è la cosa da fare."],
-  wc:"Nei bar", verificato:"2026-08-08", daVerificare:true
+  wc:"Nei bar", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Spaccanapoli_da_s_Elmo_1050131.JPG/960px-Spaccanapoli_da_s_Elmo_1050131.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Spaccanapoli"}
 },
 
 {
@@ -120,7 +124,8 @@ window.POI_napoli = [
           "Il Vesuvio in asse dal lungomare","Capri all'orizzonte se la giornata è limpida"],
   tips:["Gratis e bellissimo, ma è ~30 min a piedi dal porto in direzione opposta al centro.",
         "Ottima chiusura per il giorno dello sbarco se avete tempo."],
-  wc:"Bar del Borgo", verificato:"2026-08-08", daVerificare:false
+  wc:"Bar del Borgo", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Via_Caracciolo_100_3932.JPG/960px-Via_Caracciolo_100_3932.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Via Francesco Caracciolo"}
 }
 
 ];

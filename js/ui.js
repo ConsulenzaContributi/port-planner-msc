@@ -149,8 +149,11 @@
           '<section class="col-plan">' + controlli(s, p, v) + timeline(p, v) + '</section>' +
           '<section class="col-cat">' + catalogo(cands, v) + '</section>' +
         '</div>' +
-        '<section class="mapbox"><h3>Mappa della giornata</h3><div id="map"></div>' +
-        '<p class="mut small">Numeri = ordine delle tappe. Il pin scuro è il punto in cui ti lascia la navetta.</p></section>' +
+        '<section class="mapbox">' +
+          '<div class="mapbox-map"><h3>Mappa della giornata</h3><div id="map"></div>' +
+            '<p class="mut small">Numeri = ordine delle tappe. Il pin scuro è il punto in cui ti lascia la navetta.</p></div>' +
+          '<div class="mapbox-marcia"><h3>Tabella di marcia</h3>' + tabellaMarcia(v) + '</div>' +
+        '</section>' +
       '</div>';
 
     setTimeout(() => disegnaMappa(s, p), 30);
@@ -201,6 +204,50 @@
         (p.items.length ? '<button class="btn" data-act="pianob">Piano B ridotto</button>' : '') +
         (p.items.length ? '<button class="btn ghost" data-act="svuota">Svuota</button>' : '') +
       '</div>' + av + '</div>';
+  }
+
+  /* Solo gli spostamenti, in tabella: da dove a dove, con che mezzo, quanti
+     minuti, quanti km, quanto costa. La timeline già mostra tutto questo
+     mescolato alle visite; qui serve la versione "tabella di marcia" — la
+     stessa informazione, ma pensata per essere letta d'un colpo al lato
+     della mappa mentre ci si muove davvero. */
+  function tabellaMarcia(v) {
+    if (!v.steps || !v.steps.length) return '<p class="mut small">Nessuno spostamento: la giornata è vuota.</p>';
+
+    /* Il "da" e il "a" di ogni spostamento si ricavano guardando la tappa
+       vera immediatamente prima e immediatamente dopo, non lo step stesso
+       (che è solo il tragitto): un transfer prende nome da nave/navetta,
+       un move da nave→prima tappa dal punto di sbarco. */
+    const nomeDi = st => st.tipo === 'visit' ? st.poi.nome
+      : /rientro a bordo|dalla nave/i.test(st.titolo || '') ? 'Nave'
+      : /rientro verso/i.test(st.titolo || '') ? 'Punto navetta' : null;
+
+    const righe = [];
+    for (let i = 0; i < v.steps.length; i++) {
+      const st = v.steps[i];
+      if (st.tipo === 'visit' || st.tipo === 'wait') continue;
+      let da = null, a = null;
+      for (let j = i - 1; j >= 0 && !da; j--) da = nomeDi(v.steps[j]);
+      for (let j = i + 1; j < v.steps.length && !a; j++) a = nomeDi(v.steps[j]);
+      if (!da) da = 'Sbarco';
+      if (!a) a = 'A bordo';
+      const ico = st.tipo === 'transfer' ? '🚐' : st.modo === 'piedi' ? '🚶' : st.modo === 'taxi' ? '🚕' : '🚇';
+      righe.push('<tr>' +
+        '<td>' + T.hhmm(st.inizio) + '</td>' +
+        '<td>' + ico + ' ' + esc(da) + ' → ' + esc(a) + '</td>' +
+        '<td>' + T.dur(st.min) + '</td>' +
+        '<td>' + (st.km ? st.km.toFixed(1) + ' km' : '—') + '</td>' +
+        '<td>' + (st.costo ? eur(st.costo) : 'gratis') + '</td>' +
+      '</tr>');
+    }
+
+    const kmTot = v.steps.reduce((s, st) => s + (st.km || 0), 0);
+    const minTot = v.steps.filter(st => st.tipo === 'move' || st.tipo === 'transfer').reduce((s, st) => s + st.min, 0);
+
+    return '<div class="marcia-scroll"><table class="marcia">' +
+      '<thead><tr><th>Ora</th><th>Tratta</th><th>Durata</th><th>Distanza</th><th>Costo</th></tr></thead>' +
+      '<tbody>' + righe.join('') + '</tbody></table></div>' +
+      '<p class="mut small tot">Totale spostamenti: <b>' + T.dur(minTot) + '</b> · <b>' + kmTot.toFixed(1) + ' km</b></p>';
   }
 
   function timeline(p, v) {
@@ -362,6 +409,7 @@
           '<div><span>Gradini</span><b>' + (p.fatica.gradini || 0) + '</b></div>' +
         '</div>' +
         oraDiRipartire(p) +
+        '<div id="approfondimento-box" data-p="' + p.id + '"></div>' +
       '</div>';
 
     document.getElementById('modal').innerHTML =
@@ -383,6 +431,60 @@
       '</div>';
     document.getElementById('modal').classList.remove('hidden');
     if (window.CLOUD && window.CLOUD.montaGmailBox) window.CLOUD.montaGmailBox(p.id, esc(p.nome));
+    montaApprofondimento(p, s.citta);
+  }
+
+  /* Guida punto-per-punto da leggere durante la visita. Prima guarda se c'è
+     già in cache (condivisa fra i due viaggiatori, letta anche senza login);
+     se non c'è, offre di generarla — richiede il proxy o l'assistente online. */
+  function montaApprofondimento(p, citta) {
+    const box = document.getElementById('approfondimento-box');
+    if (!box) return;
+
+    const disegnaGuida = function (g) {
+      box.innerHTML = '<h4>📖 Guida alla visita</h4>' +
+        '<p class="lead">' + esc(g.introduzione || '') + '</p>' +
+        '<ol class="approf">' + (g.punti || []).map(function (pt) {
+          return '<li><span class="ap-min">+' + (pt.daMin || 0) + ' min</span>' +
+            '<b>' + esc(pt.titolo || '') + '</b><p>' + esc(pt.testo || '') + '</p></li>';
+        }).join('') + '</ol>' +
+        (g.chiusura ? '<p class="mut">' + esc(g.chiusura) + '</p>' : '') +
+        (g.immagini && g.immagini.length
+          ? '<div class="ap-img-riga">' + g.immagini.map(im =>
+              '<img src="' + esc(im.url) + '" alt="" loading="lazy" onerror="this.remove()">').join('') + '</div>'
+          : '') +
+        '<p class="mut small">Guida generata da un modello: verifica sul posto prima di fidarti ciecamente. ' +
+        '<button class="btn tiny ghost" id="approf-rifai">Rigenera</button></p>';
+      const bt = document.getElementById('approf-rifai');
+      if (bt) bt.addEventListener('click', genera);
+    };
+
+    async function genera() {
+      box.innerHTML = '<h4>📖 Guida alla visita</h4><p class="attesa">La sto scrivendo, cerco anche online… (15-40 secondi)</p>';
+      try {
+        const g = await window.LLM_apiApprofondimento(p, { citta: citta });
+        disegnaGuida(g);
+        if (window.CLOUD && window.CLOUD.salvaApprofondimento) window.CLOUD.salvaApprofondimento(p.id, g, 'gemini-2.5-flash');
+      } catch (err) {
+        box.innerHTML = '<h4>📖 Guida alla visita</h4><p class="av err">⛔ ' + esc(err.message) + '</p>' +
+          '<button class="btn tiny ghost" id="approf-riprova">Riprova</button>';
+        const bt = document.getElementById('approf-riprova');
+        if (bt) bt.addEventListener('click', genera);
+      }
+    }
+
+    box.innerHTML = '<h4>📖 Guida alla visita</h4><p class="mut small">Verifico se esiste già…</p>';
+    const dopoCache = function (riga) {
+      if (riga && riga.contenuto) return disegnaGuida(riga.contenuto);
+      box.innerHTML = '<h4>📖 Guida alla visita</h4>' +
+        '<p class="mut small">Non ancora generata: una guida punto-per-punto da leggere durante la visita, ' +
+        'con che cosa guardare minuto per minuto.</p>' +
+        '<button class="btn tiny primary" id="approf-genera">Genera la guida</button>';
+      const bt = document.getElementById('approf-genera');
+      if (bt) bt.addEventListener('click', genera);
+    };
+    if (window.CLOUD && window.CLOUD.leggiApprofondimento) window.CLOUD.leggiApprofondimento(p.id).then(dopoCache).catch(() => dopoCache(null));
+    else dopoCache(null);
   }
 
   function oraDiRipartire(p) {

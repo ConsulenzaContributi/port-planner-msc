@@ -97,6 +97,17 @@
     return j;
   }
 
+  async function apiApprofondimento(poi, scalo) {
+    const r = await chiama('approfondimento', {
+      nome: poi.nome, citta: scalo.citta, perche: poi.perche,
+      durataMin: poi.durata.medio, visita: poi.visita || []
+    });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.errore || 'errore del proxy');
+    return j;
+  }
+  window.LLM_apiApprofondimento = apiApprofondimento;
+
   async function apiChiedi(domanda, onTesto) {
     const r = await chiama('chiedi', {
       domanda: domanda, contesto: contestoStabile(), stato: statoAttuale(),

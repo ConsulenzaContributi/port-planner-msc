@@ -30,7 +30,8 @@ window.POI_palermo = [
         "Chiude presto (~16:30, ultimo ingresso prima): va messo la mattina, non nel pomeriggio.",
         "È il punto più lontano del centro storico: ~25 min a piedi dal porto. Ci si arriva scendendo il Cassaro.",
         "Spalle coperte per entrambi: è un luogo di culto."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Cappella_Palatina_%28low-angle%29.jpg/960px-Cappella_Palatina_%28low-angle%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Cappella Palatina (Palermo)"}
 },
 
 {
@@ -55,7 +56,8 @@ window.POI_palermo = [
   tips:["💶 La chiesa da sola è gratis ed è già bellissima. I tetti sono il vero acquisto: €24 a coppia.",
         "Sta sul Cassaro, tra il porto e Palazzo dei Normanni: si incastra perfettamente in mezzo.",
         "I tetti a inizio ottobre nel primo pomeriggio sono roventi: fatelo la mattina o alle 16."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Cattedrale_di_Palermo._-_panoramio.jpg/960px-Cattedrale_di_Palermo._-_panoramio.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Cattedrale di Palermo"}
 },
 
 {
@@ -137,7 +139,8 @@ window.POI_palermo = [
   visita:["Porta Carini all'estremità nord","Le friggitorie storiche del Capo","La Chiesa dell'Immacolata Concezione, barocco nascosto"],
   tips:["Doppione di Ballarò: l'app vi segnalerà la ridondanza e ve ne farà scegliere uno.",
         "Sta dietro la Cattedrale: comodo se scendete dai tetti."],
-  wc:"Bar", verificato:"2026-08-08", daVerificare:false
+  wc:"Bar", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/9/95/Stands_%28Mercado_del_Capo_-_Palermo%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled", credito:"Wikipedia — Il Capo (Palermo)"}
 },
 
 {
@@ -181,7 +184,8 @@ window.POI_palermo = [
           "La scalinata esterna con i leoni — la scena del Padrino","I palchi reali"],
   tips:["Sta a metà strada tra il porto e i Quattro Canti: comodissimo in uscita o in rientro.",
         "Prova il trucco acustico nella Sala Pompeiana: mettetevi al centro del cerchio e parlate."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Il_Teatro_Massimo_di_Palermo.jpg/960px-Il_Teatro_Massimo_di_Palermo.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Teatro Massimo Vittorio Emanuele"}
 },
 
 {
@@ -203,7 +207,8 @@ window.POI_palermo = [
   tips:["✅ Aperto il venerdì (chiude il lunedì).",
         "È verso la Kalsa, sulla strada del rientro al porto: costo di inserimento basso.",
         "Se scegliete un solo museo a Palermo, che sia questo."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/PA_PA_03_11_2014_01.jpg/960px-PA_PA_03_11_2014_01.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Palazzo Abatellis"}
 },
 
 {
@@ -245,7 +250,8 @@ window.POI_palermo = [
   tips:["⚠️ Non è per tutti: se uno dei due è impressionabile, saltatelo senza sensi di colpa.",
         "È fuori dal centro storico, ~30 min a piedi o 15 in bus/taxi da Palazzo dei Normanni.",
         "Vietato fotografare. Rispettatelo: è un cimitero."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/f/f3/Calcedonio_Reina_-_Love_and_Death.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled", credito:"Wikipedia — Convento e Catacombe dei Cappuccini (Palermo)"}
 },
 
 {
@@ -267,7 +273,8 @@ window.POI_palermo = [
   tips:["È tra il centro e il porto: la strada naturale del rientro a bordo.",
         "Il ficus di Piazza Marina è uno degli alberi più grandi d'Europa: sembra un set di film.",
         "Gratis, panoramico e rilassante: ideale come ultima tappa con ritmo Lento."],
-  wc:"Bar", verificato:"2026-08-08", daVerificare:false
+  wc:"Bar", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Foro_Italico_Palermo_BDSC5615.jpg/960px-Foro_Italico_Palermo_BDSC5615.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Foro Italico (Palermo)"}
 },
 
 {
@@ -287,7 +294,8 @@ window.POI_palermo = [
   tips:["Ombra vera: è la carta giusta per le ore calde del primo pomeriggio.",
         "Sta accanto alla Kalsa, sulla strada del rientro.",
         "Con ritmo Lento è perfetto; con ritmo Veloce l'app lo scarterà."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Orto_botanico_palermo.jpg/960px-Orto_botanico_palermo.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Orto botanico di Palermo"}
 },
 
 {
@@ -306,7 +314,8 @@ window.POI_palermo = [
           "I murales sui palazzi diroccati"],
   tips:["Di giorno è poco: mettetelo solo come passaggio, non come tappa.",
         "È a 10 minuti dal varco del porto: ultimo giro possibile prima del rientro."],
-  wc:"Bar", verificato:"2026-08-08", daVerificare:false
+  wc:"Bar", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Vucciaria.JPG/960px-Vucciaria.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Vucciria"}
 }
 
 ];

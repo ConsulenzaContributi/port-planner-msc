@@ -30,7 +30,8 @@ window.POI_barcellona = [
         "Le torri costano €10 in più e richiedono ~30 min extra: valgono se il ritmo è Medio o Lento.",
         "Metro L5/L2 fermata Sagrada Família, dal Colom ~20 minuti.",
         "💶 Con budget €100 a coppia: questa da sola sono €52. Il resto della giornata dovrà essere quasi gratis."],
-  wc:"Sì, dentro", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì, dentro", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/SF_mar%C3%A7_2026.jpg/960px-SF_mar%C3%A7_2026.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Sagrada Família"}
 },
 
 {
@@ -54,7 +55,8 @@ window.POI_barcellona = [
         "Sagrada + Park Güell nello stesso giorno con slot sbagliati = giornata passata in metro. "+
         "Se li volete entrambi, prendete Sagrada alle 09:30 e Park Güell dopo le 13:00.",
         "L'app vi avviserà se la combinazione non regge."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Park_G%C3%BCell_02.jpg/960px-Park_G%C3%BCell_02.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Parco Güell"}
 },
 
 {
@@ -76,7 +78,8 @@ window.POI_barcellona = [
   tips:["Ci si perde apposta: non serve un percorso.",
         "Costo zero e altissimo valore: è il POI che regge il budget di questa giornata.",
         "Attenzione a borseggiatori nelle vie più affollate e sulla Rambla."],
-  wc:"Bar", verificato:"2026-08-08", daVerificare:false
+  wc:"Bar", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/f/ff/Barcellona_Pla%C3%A7a_Reial.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled", credito:"Wikipedia — Barri Gòtic"}
 },
 
 {
@@ -97,7 +100,8 @@ window.POI_barcellona = [
   tips:["Sta dentro il Gòtic: costo di inserimento quasi nullo.",
         "Se il budget stringe, la piazza e la facciata si vedono gratis e il chiostro a volte è "+
         "accessibile gratuitamente in alcune fasce orarie: verifica."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Cathedral_of_the_Holy_Cross_and_Saint_Eulalia_edited.jpg/960px-Cathedral_of_the_Holy_Cross_and_Saint_Eulalia_edited.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Cattedrale di Barcellona"}
 },
 
 {
@@ -119,7 +123,8 @@ window.POI_barcellona = [
         "Vacci PRESTO: dopo le 11 è una calca. Sbarcando alle 08:00 potete arrivarci alle 09:00 quasi vuota.",
         "💶 Mangiare qui al bancone è il pranzo giusto per il budget: €20 a testa, veloce, e ottimo.",
         "Borseggiatori: è il posto numero uno di Barcellona. Zaino davanti."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:false
+  wc:"Sì", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Front_of_Mercat_de_Boqueria.jpg/960px-Front_of_Mercat_de_Boqueria.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — La Boqueria"}
 },
 
 {
@@ -139,7 +144,8 @@ window.POI_barcellona = [
           "Il rosone occidentale","Le tracce dell'incendio del 1936 sulle pietre annerite"],
   tips:["Gratis, bellissima, 25 minuti, in pieno Born. È il miglior rapporto qualità/prezzo della città.",
         "Se avete letto il romanzo di Falcones, qui è dove è ambientato."],
-  wc:"No", verificato:"2026-08-08", daVerificare:true
+  wc:"No", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/SantaMariaDelMar_9257.jpg/960px-SantaMariaDelMar_9257.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Basilica di Santa Maria del Mar"}
 },
 
 {
@@ -158,7 +164,8 @@ window.POI_barcellona = [
           "Carrer Montcada, la via dei palazzi gotici","I bar di vermut all'ora dell'aperitivo"],
   tips:["Confina con Santa Maria del Mar e col Museu Picasso: tre POI in 300 metri.",
         "È la zona giusta per l'ultimo giro prima di rientrare in nave."],
-  wc:"Bar", verificato:"2026-08-08", daVerificare:false
+  wc:"Bar", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Passeig_del_Born_Barcelona_Catalonia.JPG/960px-Passeig_del_Born_Barcelona_Catalonia.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — El Born"}
 },
 
 {
@@ -241,7 +248,8 @@ window.POI_barcellona = [
         "guardare da fuori. Ed è comunque bellissimo.",
         "Sta sulla strada tra la Sagrada Família e il Gòtic: costo di inserimento basso.",
         "Casa Batlló è splendida di sera illuminata, ma voi ripartite alle 18:00."],
-  wc:"No", verificato:"2026-08-08", daVerificare:false
+  wc:"No", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Via_Barcelona_Casa_Mil%C3%A0.JPG/960px-Via_Barcelona_Casa_Mil%C3%A0.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Passeig de Gràcia"}
 },
 
 {
@@ -261,7 +269,8 @@ window.POI_barcellona = [
           "La terrazza sul tetto con i camini a trencadís","La scala di legno a spina di pesce"],
   tips:["⚠️ €70 a coppia: con budget €100 esclude quasi tutto il resto. Sceglietela SOLO se rinunciate alla Sagrada.",
         "Se dovete scegliere una sola casa di Gaudí e avete già la Sagrada, guardatela da fuori."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/CasaBatllo.jpg/960px-CasaBatllo.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Casa Batlló"}
 },
 
 {
@@ -284,7 +293,8 @@ window.POI_barcellona = [
   tips:["Chiude presto: le visite finiscono nel primo pomeriggio. Va messa la mattina.",
         "Sta a 5 minuti dal Gòtic e dal Born.",
         "Alternativa più economica ed elegante alla Casa Batlló: €44 a coppia invece di €70."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Palau_de_musica_2.JPG/960px-Palau_de_musica_2.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Palau de la Música Catalana"}
 },
 
 {

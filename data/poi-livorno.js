@@ -23,7 +23,8 @@ window.POI_livorno = [
   tips:["È il posto migliore dove finire la giornata: la luce del tardo pomeriggio sui mattoni è la cosa più bella di Livorno.",
         "Di domenica è vivo, ci sono locali aperti sui fossi.",
         "Attenzione ai bordi dei canali: nessun parapetto in molti tratti."],
-  wc:"Bar sui fossi, consumazione", verificato:"2026-08-08", daVerificare:false
+  wc:"Bar sui fossi, consumazione", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Scali_del_Ponte_di_Marmo_e_degli_isolotti_Livorno.JPG/960px-Scali_del_Ponte_di_Marmo_e_degli_isolotti_Livorno.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Venezia Nuova"}
 },
 
 {
@@ -65,7 +66,8 @@ window.POI_livorno = [
   tips:["Zero ombra: non andarci a mezzogiorno a inizio ottobre.",
         "È a ~25 min a piedi dal centro lungo il viale Italia, oppure bus. La passeggiata è piacevole.",
         "L'Acquario è lì accanto: si abbinano naturalmente."],
-  wc:"Bar della terrazza", verificato:"2026-08-08", daVerificare:false
+  wc:"Bar della terrazza", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Livorno01.jpg/960px-Livorno01.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Terrazza Mascagni"}
 },
 
 {
@@ -82,7 +84,8 @@ window.POI_livorno = [
   visita:["La navata centrale in prospettiva","I banchi del pesce","I banchi di torta di ceci"],
   tips:["⛔ CHIUSO LA DOMENICA — e voi sbarcate di domenica. L'app lo tiene escluso apposta.",
         "Resta in scheda perché se cambiate crociera o data è la prima cosa da rimettere in programma."],
-  wc:"Sì, interno", verificato:"2026-08-08", daVerificare:false
+  wc:"Sì, interno", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Mercato_delle_Vettovaglie%2C_Livorno.jpg/960px-Mercato_delle_Vettovaglie%2C_Livorno.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Mercato delle vettovaglie"}
 },
 
 {
@@ -101,7 +104,8 @@ window.POI_livorno = [
           "La Quadratura dei Pisani, il livello archeologico più basso"],
   tips:["È la vista migliore sulla nave: buona foto ricordo.",
         "Verifica l'apertura del giorno: gli orari cambiano con gli eventi."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Livorno_-_Fortezza_Vecchia.jpg/960px-Livorno_-_Fortezza_Vecchia.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Fortezza Vecchia"}
 },
 
 {
@@ -137,7 +141,8 @@ window.POI_livorno = [
   visita:["Il portico e il soffitto a cassettoni","Le tele seicentesche del soffitto"],
   tips:["È DOMENICA: durante le messe la visita turistica è sospesa. Passa fuori dagli orari liturgici.",
         "Sta esattamente sulla strada tra il porto e la Venezia: costa quasi zero in tempo."],
-  wc:"No", verificato:"2026-08-08", daVerificare:false
+  wc:"No", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Piazza_Grande_%28Livorno%29.jpg/960px-Piazza_Grande_%28Livorno%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Piazza Grande (Livorno)"}
 },
 
 {
@@ -157,7 +162,8 @@ window.POI_livorno = [
   visita:["Il tunnel degli squali","La vasca delle tartarughe Caretta caretta","La sala delle meduse"],
   tips:["Vale se piove o se avanza tempo nel pomeriggio: 10 ore a Livorno sono tante.",
         "Si abbina obbligatoriamente alla Terrazza Mascagni, è lo stesso posto."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Livorno_Acquario_Cestoni.JPG/960px-Livorno_Acquario_Cestoni.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Acquario di Livorno"}
 },
 
 {
@@ -175,7 +181,8 @@ window.POI_livorno = [
   visita:["Le marine di Fattori","La sala dedicata a Nomellini","Il salone della villa e le boiseries"],
   tips:["⚠️ Attenzione agli orari domenicali: spesso apre solo la mattina. Verifica prima di incastrarlo nel piano.",
         "Sta sulla strada tra il centro e la Terrazza Mascagni: costo di inserimento basso."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Livorno_Villa_Mimbelli.JPG/960px-Livorno_Villa_Mimbelli.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Museo civico Giovanni Fattori"}
 },
 
 {
@@ -195,7 +202,8 @@ window.POI_livorno = [
   tips:["È dentro il comune di Livorno, ma serve ~30 min di bus per raggiungere la base della funicolare: "+
         "considera ~2 ore porta a porta. Ha senso solo se scegli il ritmo Medio o Veloce.",
         "Verifica gli orari della funicolare la domenica prima di partire dal centro."],
-  wc:"Sì al santuario", verificato:"2026-08-08", daVerificare:true
+  wc:"Sì al santuario", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Funicolare_di_Montenero.JPG/960px-Funicolare_di_Montenero.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Funicolare di Montenero"}
 },
 
 {
@@ -251,7 +259,8 @@ window.POI_livorno = [
   visita:["Chiedi il 'ponce corretto'","La vela di limone va lasciata dentro","Si beve caldo e veloce"],
   tips:["Costa 4 euro e dura 15 minuti: l'app lo userà per riempire i buchi piccoli del programma.",
         "Il bar storico è vicino alla Venezia. Non è un posto turistico: aspettati un bancone e basta."],
-  wc:"Del bar", verificato:"2026-08-08", daVerificare:false
+  wc:"Del bar", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Gottino_di_ponce_alla_livornese_con_vela.jpg/960px-Gottino_di_ponce_alla_livornese_con_vela.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Ponce livornese"}
 },
 
 {

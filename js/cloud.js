@@ -322,6 +322,29 @@
     });
   };
 
+  /* ------------------------------------------------- guide di approfondimento
+
+     Cache CONDIVISA fra i due viaggiatori (non per-utente, non è un dato
+     personale): la prima volta che uno dei due genera la guida di un posto,
+     l'altro la trova già pronta. La lettura funziona anche senza login —
+     "conoscenza su un luogo" non è un segreto — la scrittura richiede
+     l'accesso, solo per non lasciare un endpoint anonimo che consuma la
+     chiave Gemini di chiunque. */
+
+  window.CLOUD.leggiApprofondimento = async function (poiId) {
+    if (!stato.sb) return null;
+    const r = await stato.sb.from('approfondimenti').select('*').eq('poi_id', poiId).maybeSingle();
+    return r.error ? null : r.data;
+  };
+
+  window.CLOUD.salvaApprofondimento = async function (poiId, contenuto, modello) {
+    if (!stato.utente) return;                       /* generato ma non messo in cache: va bene lo stesso */
+    await stato.sb.from('approfondimenti').upsert({
+      poi_id: poiId, contenuto: contenuto, modello: modello || '',
+      creato_da: stato.utente.id, updated_at: new Date().toISOString()
+    }, { onConflict: 'poi_id' });
+  };
+
   /* ------------------------------------------- assistente: dove va a finire */
 
   /* llm.js chiama questa se esiste. Con l'accesso fatto si passa dalla Edge

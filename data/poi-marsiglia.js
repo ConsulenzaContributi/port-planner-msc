@@ -20,7 +20,8 @@ window.POI_marsiglia = [
   tips:["È dove vi lascia la navetta: è il punto zero della giornata.",
         "Il mercato del pesce finisce presto: arrivando alle 10:30 lo trovate agli sgoccioli.",
         "Il ferry-boat traghetto vale la corsa: 3 minuti, costa pochissimo, ed è un'istituzione."],
-  wc:"Pubblici sulla banchina", verificato:"2026-08-08", daVerificare:false
+  wc:"Pubblici sulla banchina", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Vieux-Port_Mairie_R01.jpg/960px-Vieux-Port_Mairie_R01.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Vieux-Port (it.wikipedia.org)"}
 },
 
 {
@@ -42,7 +43,8 @@ window.POI_marsiglia = [
         "⚠️ I musei dentro la Vieille Charité chiudono di norma il lunedì — il cortile e la cappella "+
         "restano spesso visitabili. Verifica.",
         "Si incastra perfettamente tra Vieux-Port e la Major: zero tempo perso."],
-  wc:"Bar della zona", verificato:"2026-08-08", daVerificare:true
+  wc:"Bar della zona", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Street_in_Marseille_-_Panier.jpg/960px-Street_in_Marseille_-_Panier.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Le Panier"}
 },
 
 {
@@ -105,7 +107,8 @@ window.POI_marsiglia = [
   tips:["Salita ripida: il bus 60 dal Vieux-Port ci arriva in ~15 min ed è la scelta giusta con questo caldo.",
         "Ingresso gratuito: è il punto più alto e più bello della giornata a costo zero.",
         "Metti in conto ~90 minuti totali andata-ritorno dal Vieux-Port. Con ritmo Veloce sacrifica altro."],
-  wc:"Sì", verificato:"2026-08-08", daVerificare:false
+  wc:"Sì", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Notre-Dame_de_la_Garde_aerial_view_2020.jpeg/960px-Notre-Dame_de_la_Garde_aerial_view_2020.jpeg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Notre-Dame-de-la-Garde"}
 },
 
 {
@@ -162,7 +165,8 @@ window.POI_marsiglia = [
   tips:["✅ Aperto il lunedì (chiude la domenica). Fortunati di nuovo.",
         "Tienilo stretto se avete poco tempo: 30 minuti bastano per l'effetto.",
         "Zona affollata: attenzione a portafogli e telefono, come in ogni mercato."],
-  wc:"No", verificato:"2026-08-08", daVerificare:true
+  wc:"No", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Marseille_-_M%C3%A9tro_%26_Tramway_-_Noailles_%287537853682%29.jpg/960px-Marseille_-_M%C3%A9tro_%26_Tramway_-_Noailles_%287537853682%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Noailles (Marsiglia)"}
 },
 
 {
@@ -181,7 +185,8 @@ window.POI_marsiglia = [
           "La piazza alberata con i caffè"],
   tips:["Si abbina a Noailles: sono contigui, 5 minuti di salita.",
         "Buon posto per un caffè seduti a metà pomeriggio, prima di rientrare."],
-  wc:"Bar", verificato:"2026-08-08", daVerificare:false
+  wc:"Bar", verificato:"2026-08-08", daVerificare:false,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Marseille_Metro_ND_du_Mont.jpg/960px-Marseille_Metro_ND_du_Mont.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Notre-Dame-du-Mont - Cours Julien (it.wikipedia.org)"}
 },
 
 {

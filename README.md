@@ -92,6 +92,25 @@ forzarla. Disattivala per tornare al solo consiglio.
 
 Senza proxy l'app funziona lo stesso: perdi solo l'assistente e la generazione schede.
 
+## Foto, tabella di marcia e guida punto-per-punto
+
+**Foto sulle schede.** La maggior parte delle 76 attrazioni ha ora una foto, pescata
+da Wikipedia con [tools/fetch-images.mjs](tools/fetch-images.mjs) (nessuna chiave
+richiesta, nessuna immagine inventata: o l'API trova un file vero e pertinente, o la
+scheda resta senza foto — mai un link morto). Rilancialo dopo aver aggiunto tappe:
+`node tools/fetch-images.mjs [città]`.
+
+**Tabella di marcia.** Accanto alla mappa di ogni giornata, una tabella con ogni
+spostamento: orario, da-a, mezzo, minuti, km, costo — pensata per essere consultata
+in movimento, non per essere letta come un racconto.
+
+**Guida punto-per-punto.** Nella scheda di ogni attrazione, tab "In visita" →
+**Genera la guida**: un percorso a tappe temporizzate dentro la visita stessa
+("+0 min: l'emiciclo, guarda qui…", "+12 min: la facciata, guarda là…"), scritto
+cercando online per dettagli specifici, non genericità. Generata una volta, resta
+in cache **condivisa** tra i due viaggiatori (chi la genera per primo la crea per
+entrambi) — leggibile anche senza accesso, la genera solo chi ha fatto login.
+
 ## Email di conferma collegate alla scheda
 
 Ogni scheda ha in fondo un riquadro **«Email di conferma»**: cerca nella tua Gmail
@@ -179,6 +198,7 @@ server/.env            ⚠️ segreti, mai committare
 supabase/functions/    la Edge Function: il gemello online del proxy
 supabase/migrations/   schema del database e policy RLS (piani, poi, email collegate)
 tools/build-matrix.mjs generatore della matrice tempi via Composio
+tools/fetch-images.mjs aggiunge le foto alle schede, pescandole da Wikipedia
 TUTORIAL.md            tutorial passo per passo con esempio reale
 BRAINSTORM-tecnico.md  dossier porto per porto, modello dati, formule, roadmap
 ```

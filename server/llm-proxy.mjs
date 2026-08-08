@@ -113,6 +113,31 @@ Regole:
 - Nei tips scrivi da dove viene il prezzo e a che data risale.
 - immagineUrl SOLO se hai trovato un link diretto a un file immagine (jpg/png/webp) da una fonte affidabile (Wikimedia Commons, sito ufficiale). Se hai solo la pagina che la contiene, lascia "" invece di inventare o linkare la pagina HTML.`;
 
+/* Guida punto-per-punto pensata per essere letta DURANTE la visita, non
+   prima: ogni punto ha un tempo dentro la visita (non un orario assoluto —
+   quello lo sa solo il piano del giorno) così regge qualunque ritmo scelto. */
+const ISTRUZIONI_APPROFONDIMENTO = `Crea una guida alla visita punto-per-punto per UNA attrazione, da seguire
+mentre ci si è dentro. Cerca su internet per i dettagli specifici (chi l'ha costruita,
+cosa vedere in una stanza precisa, aneddoti verificabili) — niente generico.
+
+Rispondi SOLO con un oggetto JSON, senza testo prima o dopo, senza blocchi markdown:
+{
+  "introduzione": stringa breve (2-3 frasi: come muoversi appena entrati),
+  "punti": array di 4-7 oggetti { "daMin": intero, "titolo": stringa, "testo": stringa di
+    3-5 frasi molto concrete (cosa guardare esattamente, dove si trova, perché conta) },
+  "chiusura": stringa breve (1-2 frasi: l'ultima cosa da non perdere prima di uscire),
+  "immagini": array di 0-3 oggetti { "url": link diretto a un file immagine reale trovato
+    cercando (Wikimedia Commons o sito ufficiale, mai inventato), "credito": stringa breve }
+}
+
+Regole:
+- "daMin" è il minuto dall'inizio della visita in cui quel punto ha senso (0, poi crescente),
+  calibrato sulla durata_minuti indicata: l'ultimo punto deve stare ragionevolmente
+  entro la durata data, non oltre.
+- Ogni punto deve poter essere letto in 20-30 secondi mentre si è in piedi davanti alla cosa.
+- Zero generico: non "ammira gli affreschi", ma cosa raffigurano e dove guardare esattamente.
+- immagini SOLO con URL diretti a file veri, mai pagine HTML, mai inventati: meglio [] che un link morto.`;
+
 /* --------------------------------------------- strumenti dell'agente
 
    Le funzioni NON girano qui: girano nel browser, dove stanno il motore e i
@@ -288,6 +313,39 @@ ${dati.descrizione}
   }
 }
 
+async function generaApprofondimento(dati) {
+  const utente = `Attrazione: ${dati.nome}
+Città: ${dati.citta}
+Perché vale la visita, dalla nostra scheda: ${dati.perche || '—'}
+Durata di visita prevista: ${dati.durataMin} minuti
+Punti già segnalati come da non perdere: ${(dati.visita || []).join('; ') || '—'}`;
+
+  const contenuti = [{ role: 'user', parts: [{ text: utente }] }];
+
+  for (let tentativo = 1; tentativo <= 2; tentativo++) {
+    const r = await ai.models.generateContent({
+      model: MODELLO,
+      contents: contenuti,
+      config: {
+        systemInstruction: RUOLO + '\n\n' + ISTRUZIONI_APPROFONDIMENTO,
+        temperature: 0.5,
+        tools: [{ googleSearch: {} }]
+      }
+    });
+    const testo = r.text || '';
+    try {
+      const guida = estraiJson(testo);
+      guida._fonti = fonti(r);
+      return guida;
+    } catch (err) {
+      if (tentativo === 2)
+        throw new Error('Il modello non ha prodotto un JSON valido. Riprova tra poco.');
+      contenuti.push({ role: 'model', parts: [{ text: String(testo).slice(0, 2000) }] });
+      contenuti.push({ role: 'user', parts: [{ text: `Errore: ${err.message}. Rispondi SOLO con l'oggetto JSON, niente altro.` }] });
+    }
+  }
+}
+
 /* ------------------------------------------------------- domande e risposte */
 
 async function chiedi(dati, res) {
@@ -356,6 +414,7 @@ const server = http.createServer(async (req, res) => {
   try {
     const dati = await leggiCorpo(req);
     if (req.url === '/api/scheda') return json(res, 200, await generaScheda(dati));
+    if (req.url === '/api/approfondimento') return json(res, 200, await generaApprofondimento(dati));
     if (req.url === '/api/agente') return json(res, 200, await agente(dati));
     if (req.url === '/api/chiedi') return await chiedi(dati, res);
     return json(res, 404, { errore: 'endpoint sconosciuto' });

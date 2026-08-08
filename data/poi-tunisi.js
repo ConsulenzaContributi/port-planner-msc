@@ -25,7 +25,8 @@ window.POI_tunisi = [
         "Se qualcuno si offre di 'accompagnarvi gratis' a una terrazza panoramica, finisce in un negozio di tappeti.",
         "Contratta partendo da un terzo del prezzo chiesto. È previsto dal gioco, non è maleducazione.",
         "⚠️ Il venerdì a mezzogiorno molte botteghe chiudono per la preghiera — voi però siete di giovedì."],
-  wc:"Nei caffè, con consumazione", verificato:"2026-08-08", daVerificare:true
+  wc:"Nei caffè, con consumazione", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Vue_de_Tunis.jpg/960px-Vue_de_Tunis.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Tunisi"}
 },
 
 {
@@ -45,7 +46,8 @@ window.POI_tunisi = [
   tips:["Abbigliamento coperto: spalle e ginocchia coperte per entrambi. Foulard per la testa consigliato.",
         "Chiude a metà giornata: mettila nella prima parte del programma.",
         "Le terrazze dei negozi di tappeti attorno offrono la stessa vista 'gratis' — ma poi vi vendono un tappeto."],
-  wc:"No", verificato:"2026-08-08", daVerificare:true
+  wc:"No", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/MinaretMosqueeZitounaTunis.JPG/960px-MinaretMosqueeZitounaTunis.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Moschea al-Zaytuna"}
 },
 
 {
@@ -211,7 +213,8 @@ window.POI_tunisi = [
         "La Goletta: aggiungerlo costa meno di quanto sembri.",
         "Attivalo dai filtri se vuoi valutarlo. Con ritmo Veloce ci sta.",
         "Salita ripida e scalinata: non è comodo con il caldo del primo pomeriggio."],
-  wc:"Nei caffè", verificato:"2026-08-08", daVerificare:true
+  wc:"Nei caffè", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/FamousStreetSidiBouSaid.JPG/960px-FamousStreetSidiBouSaid.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Sidi Bou Said"}
 },
 
 {
@@ -232,7 +235,8 @@ window.POI_tunisi = [
         "e servono taxi tra l'uno e l'altro: metti in conto ~2h30 reali, non 1h.",
         "⚠️ Zero ombra. A inizio ottobre a mezzogiorno è durissima.",
         "Se lo attivi, taglia la medina o il Bardo: non ci stanno tutti e tre."],
-  wc:"Ai principali recinti", verificato:"2026-08-08", daVerificare:true
+  wc:"Ai principali recinti", verificato:"2026-08-08", daVerificare:true,
+  immagine:{url:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Facade_sud_Abidine.JPG/960px-Facade_sud_Abidine.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail", credito:"Wikipedia — Cartagine (Tunisia)"}
 }
 
 ];

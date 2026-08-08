@@ -175,11 +175,19 @@ button{font:inherit;cursor:pointer}
 .resta{color:var(--mut);margin-left:auto;font-size:11.5px}
 .p-act{display:flex;gap:6px;margin-top:9px;justify-content:flex-end}
 
-/* mappa */
-.mapbox{margin-top:16px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+/* mappa + tabella di marcia, affiancate */
+.mapbox{margin-top:16px;display:grid;grid-template-columns:1.3fr 1fr;gap:16px;align-items:start}
+.mapbox-map,.mapbox-marcia{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
   padding:16px;box-shadow:var(--sh)}
-.mapbox h3{font-size:16px;margin-bottom:11px}
+.mapbox-map h3,.mapbox-marcia h3{font-size:16px;margin-bottom:11px}
 #map{height:430px;border-radius:10px;overflow:hidden;background:var(--bg);z-index:1}
+.marcia-scroll{max-height:390px;overflow:auto}
+table.marcia{width:100%;border-collapse:collapse;font-size:12.5px}
+table.marcia th{text-align:left;color:var(--mut);font-weight:600;padding:5px 6px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:var(--panel)}
+table.marcia td{padding:6px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+table.marcia tr:last-child td{border-bottom:0}
+@media(max-width:900px){.mapbox{grid-template-columns:1fr}}
 .nomap{display:grid;place-items:center;height:100%;color:var(--mut);font-size:13.5px;text-align:center;padding:24px}
 .mk div{width:28px;height:28px;border-radius:50%;color:#fff;display:grid;place-items:center;
   font-size:12.5px;font-weight:700;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.35)}
@@ -315,3 +323,15 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--acc);outline-off
   border-bottom:1px solid var(--line);font-size:13px}
 .gmail-riga p{flex-basis:100%;margin:2px 0 0}
 .gmail-riga b{flex-basis:100%}
+
+/* ------------------------------------------------------- guida di approfondimento */
+#approfondimento-box{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+#approfondimento-box h4{margin:0 0 6px}
+ol.approf{list-style:none;margin:10px 0;padding:0;display:flex;flex-direction:column;gap:10px}
+ol.approf li{padding-left:52px;position:relative;font-size:13.5px}
+ol.approf .ap-min{position:absolute;left:0;top:0;font-size:11px;font-weight:700;color:#fff;
+  background:var(--acc);border-radius:999px;padding:2px 8px}
+ol.approf b{display:block;margin-bottom:2px}
+ol.approf p{margin:0;color:var(--mut)}
+.ap-img-riga{display:flex;gap:8px;overflow-x:auto;margin:8px 0}
+.ap-img-riga img{height:110px;border-radius:8px;flex:0 0 auto}
