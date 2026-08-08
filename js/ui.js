@@ -346,6 +346,7 @@
         riga('Servizi igienici', esc(p.wc || '—')) +
         fonti +
       '</div>' +
+      '<div id="gmail-box" data-p="' + p.id + '"></div>' +
       (p.tips && p.tips.length ? '<h4>Consigli</h4><ul class="tips">' + p.tips.map(t => '<li>' + esc(t) + '</li>').join('') + '</ul>' : '') +
       '<p class="verif">Dati raccolti il ' + esc(p.verificato) +
         (p.daVerificare ? ' · <b>da riverificare prima della partenza</b>' : '') + '</p>';
@@ -381,6 +382,7 @@
         '</footer>' +
       '</div>';
     document.getElementById('modal').classList.remove('hidden');
+    if (window.CLOUD && window.CLOUD.montaGmailBox) window.CLOUD.montaGmailBox(p.id, esc(p.nome));
   }
 
   function oraDiRipartire(p) {

@@ -304,3 +304,14 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--acc);outline-off
 .map-pop b:hover{text-decoration:underline}
 .map-pop span{font-size:12px;color:var(--mut)}
 .map-pop-act{display:flex;gap:6px;margin-top:4px}
+
+/* --------------------------------------------------------------- box Gmail */
+#gmail-box{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+#gmail-box h4{margin:0 0 6px}
+.gmail-cerca{display:flex;gap:6px;margin:8px 0}
+.gmail-cerca input{flex:1;padding:7px 10px;border:1px solid var(--line);border-radius:8px;
+  background:var(--panel);color:var(--ink);font:inherit}
+.gmail-riga{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;padding:7px 0;
+  border-bottom:1px solid var(--line);font-size:13px}
+.gmail-riga p{flex-basis:100%;margin:2px 0 0}
+.gmail-riga b{flex-basis:100%}

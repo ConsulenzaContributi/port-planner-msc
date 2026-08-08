@@ -92,6 +92,28 @@ forzarla. Disattivala per tornare al solo consiglio.
 
 Senza proxy l'app funziona lo stesso: perdi solo l'assistente e la generazione schede.
 
+## Email di conferma collegate alla scheda
+
+Ogni scheda ha in fondo un riquadro **«Email di conferma»**: cerca nella tua Gmail
+(solo in lettura — l'app non può inviare né cancellare niente) e ti lascia agganciare
+la ricevuta o il biglietto giusto alla tappa giusta. Il contenuto della mail non tocca
+mai il database: restano solo oggetto, mittente e un link che riapre il messaggio vero
+su Gmail. Sparisce da solo se non hai fatto l'accesso, o se il permesso è scaduto — in
+quel caso basta uscire e rientrare con Google.
+
+**Attivazione, una volta sola — due passaggi su Google Cloud Console** (progetto
+collegato alle credenziali OAuth di Supabase):
+
+1. [APIs & Services → Library](https://console.cloud.google.com/apis/library) → cerca
+   **Gmail API** → Abilita.
+2. [APIs & Services → OAuth consent screen → Data Access](https://console.cloud.google.com/apis/credentials/consent) →
+   aggiungi lo scope `.../auth/gmail.readonly` → salva. Se l'app è ancora in modalità
+   "Testing" (probabile, per un progetto a due utenti), aggiungi le vostre due email
+   come **Test users** nella stessa schermata, altrimenti Google rifiuta l'accesso.
+
+Senza questo, il riquadro resta e non dà errore: si limita a chiedere di accedere,
+esattamente come se il permesso non fosse stato concesso.
+
 ## Sul telefono, con l'accesso Google
 
 Progetto Supabase: **`port-planner`** (`ncvsthbfhfqrvfvjoybb`, regione eu-central-1,
@@ -155,7 +177,7 @@ data/matrix.js         tempi reali Maps (generato, opzionale)
 server/llm-proxy.mjs   proxy locale Gemini — tiene la chiave fuori dal browser
 server/.env            ⚠️ segreti, mai committare
 supabase/functions/    la Edge Function: il gemello online del proxy
-supabase/migrations/   schema del database e policy RLS
+supabase/migrations/   schema del database e policy RLS (piani, poi, email collegate)
 tools/build-matrix.mjs generatore della matrice tempi via Composio
 TUTORIAL.md            tutorial passo per passo con esempio reale
 BRAINSTORM-tecnico.md  dossier porto per porto, modello dati, formule, roadmap
