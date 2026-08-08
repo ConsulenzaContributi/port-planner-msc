@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Port Planner — MSC Meraviglia · 26 set – 3 ott 2026</title>
+<meta name="theme-color" content="#0f766e">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icona.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icona.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Port Planner">
+</head>
+<body>
+
+<header id="hdr"></header>
+<nav id="tabs"></nav>
+<main id="main"></main>
+<div id="modal" class="modal hidden"></div>
+
+<!-- Leaflet: serve solo per la mappa, e solo al primo caricamento.
+     Se non c'è rete, tutto il resto dell'app funziona lo stesso. -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Dati: file JS puri, così l'app si apre con doppio clic senza server -->
+<script src="data/cruise.js"></script>
+<script src="data/supabase.js"></script>
+<script src="data/poi-napoli.js"></script>
+<script src="data/poi-livorno.js"></script>
+<script src="data/poi-marsiglia.js"></script>
+<script src="data/poi-barcellona.js"></script>
+<script src="data/poi-tunisi.js"></script>
+<script src="data/poi-palermo.js"></script>
+
+<!-- Motore e interfaccia -->
+<script src="js/engine.js"></script>
+<script src="js/ui.js"></script>
+
+<!-- Assistente e agente. Parla con la Edge Function su Supabase se hai fatto
+     l'accesso, altrimenti con il proxy locale (server/llm-proxy.mjs).
+     Senza nessuno dei due, l'aggiunta manuale funziona lo stesso. -->
+<script src="js/llm.js"></script>
+
+<!-- Cloud: accesso Google e sincronizzazione. Va DOPO ui.js e llm.js perché si
+     innesta su quelli. Senza configurazione o senza rete, non fa niente. -->
+<script src="js/cloud.js"></script>
+
+<script>
+  /* Service worker: serve a poter aprire l'app dal telefono senza rete, che è
+     esattamente la condizione del giorno dello scalo. Solo su http/https. */
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http'))
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+</script>
+
+</body>
+</html>

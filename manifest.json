@@ -1,0 +1,15 @@
+{
+  "name": "Port Planner — MSC Meraviglia",
+  "short_name": "Port Planner",
+  "description": "Le giornate a terra della crociera, con orari, costi e il vincolo del tutti a bordo",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#0f766e",
+  "lang": "it",
+  "icons": [
+    { "src": "icona.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

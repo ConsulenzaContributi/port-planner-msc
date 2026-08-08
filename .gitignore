@@ -1,0 +1,11 @@
+# Segreti — MAI committare
+.env
+*.env
+!*.env.example
+server/.env
+
+# Dipendenze
+node_modules/
+
+# Sistema
+.DS_Store

@@ -1,0 +1,13 @@
+{
+  "name": "port-planner-llm-proxy",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Proxy locale Google Gemini — tiene la chiave API fuori dal browser",
+  "scripts": {
+    "start": "node llm-proxy.mjs"
+  },
+  "dependencies": {
+    "@google/genai": "^2.16.0"
+  }
+}
