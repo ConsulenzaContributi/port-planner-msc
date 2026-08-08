@@ -71,12 +71,25 @@
     try { await sincronizza(); } catch (e) { stato.errore = e.message; disegna(); }
   }
 
+  /* La versione pubblicata ha UN SOLO indirizzo di ritorno possibile, fisso:
+     costruirlo da location.pathname è fragile, perché uno slash finale in
+     più o in meno rispetto a quanto scritto nel pannello Supabase fa fallire
+     il confronto esatto e fa ripiegare tutto sul Site URL (spesso ancora
+     quello del server locale) — è il motivo per cui il login "torna dove
+     non deve" anche quando si parte dal posto giusto. In locale invece serve
+     restare dinamico, perché la porta del server può cambiare. */
+  function indirizzoDiRitorno() {
+    if (location.hostname === 'consulenzacontributi.github.io')
+      return 'https://consulenzacontributi.github.io/port-planner-msc/';
+    return location.origin + location.pathname;
+  }
+
   async function accedi() {
     if (!stato.sb) return;
     const { error } = await stato.sb.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: location.origin + location.pathname,
+        redirectTo: indirizzoDiRitorno(),
         /* gmail.readonly SOLO in lettura: l'app può cercare le tue conferme
            di prenotazione, non può inviare né cancellare niente. */
         scopes: 'https://www.googleapis.com/auth/gmail.readonly',
