@@ -10,7 +10,7 @@
    completamente offline: legge il file, non chiama nessuno.
 
    Prerequisito (una volta sola, sei tu a doverlo fare):
-       composio link google
+       composio link google_maps
 
    Uso:
        node tools/build-matrix.mjs            # tutti gli scali
@@ -42,10 +42,12 @@ function caricaDati() {
 
 const chiave = c => c[0].toFixed(5) + ',' + c[1].toFixed(5);
 
-async function matriceComposio(punti, modo) {
+/* Una sola chiamata origini×destinazioni. Non sa nulla di limiti o blocchi:
+   quello lo decide chi la chiama (sotto). */
+async function chiamataMatrice(origini, destinazioni, modo) {
   const corpo = JSON.stringify({
-    origins: punti.map(p => ({ latitude: p.coord[0], longitude: p.coord[1] })),
-    destinations: punti.map(p => ({ latitude: p.coord[0], longitude: p.coord[1] })),
+    origins: origini.map(p => ({ latitude: p.coord[0], longitude: p.coord[1] })),
+    destinations: destinazioni.map(p => ({ latitude: p.coord[0], longitude: p.coord[1] })),
     travelMode: modo,
     units: 'METRIC',
     fieldMask: 'originIndex,destinationIndex,duration,distanceMeters,condition'
@@ -54,22 +56,50 @@ async function matriceComposio(punti, modo) {
     ['execute', 'GOOGLE_MAPS_COMPUTE_ROUTE_MATRIX', '-d', corpo],
     { maxBuffer: 32 * 1024 * 1024 });
   const r = JSON.parse(stdout);
-  if (!r.successful) throw new Error(r.error || 'chiamata fallita');
+  if (!r.successful) throw new Error(typeof r.error === 'string' ? r.error : JSON.stringify(r.error));
+  /* Sopra una certa dimensione Composio non mette i dati inline nella
+     risposta: li scrive su un file temporaneo e restituisce solo il
+     percorso. Va letto da lì. */
+  const dati = r.storedInFile && r.outputFilePath
+    ? JSON.parse(fs.readFileSync(r.outputFilePath, 'utf8'))
+    : r;
   /* elements è piatto e può essere fuori ordine: si ricostruisce SEMPRE
      tramite originIndex/destinationIndex, mai per posizione. */
-  const el = r.data?.elements || r.data?.response_data?.elements || [];
+  const el = dati.data?.elements || dati.data?.response_data?.elements || dati.elements || [];
   const fuori = [];
   for (const e of el) {
     if (e.condition !== 'ROUTE_EXISTS') continue;
-    if (e.originIndex === e.destinationIndex) continue;
+    const oPunto = origini[e.originIndex], dPunto = destinazioni[e.destinationIndex];
+    if (!oPunto || !dPunto || oPunto === dPunto) continue;
     const sec = parseInt(String(e.duration ?? '0').replace(/s$/, ''), 10);
     if (!Number.isFinite(sec) || sec <= 0) continue;
-    fuori.push({
-      da: chiave(punti[e.originIndex].coord),
-      a: chiave(punti[e.destinationIndex].coord),
-      min: Math.round(sec / 60),
-      m: e.distanceMeters ?? null
-    });
+    fuori.push({ da: chiave(oPunto.coord), a: chiave(dPunto.coord), min: Math.round(sec / 60), m: e.distanceMeters ?? null });
+  }
+  return fuori;
+}
+
+function blocchi(arr, dim) {
+  const out = [];
+  for (let i = 0; i < arr.length; i += dim) out.push(arr.slice(i, i + dim));
+  return out;
+}
+
+/* Google limita TRANSIT a 100 elementi (origini × destinazioni) per
+   chiamata; WALK non ha questo limite ma sopra una certa taglia Composio
+   comunque smette di rispondere inline (gestito sopra). Per restare sotto
+   100 anche nel caso peggiore (denso di città con più di 10 punti) si
+   spezza la griglia in blocchi quadrati e si sommano i risultati — funziona
+   per qualunque numero di attrazioni, non solo per quelle di oggi. */
+async function matriceComposio(punti, modo) {
+  const dimBlocco = modo === 'TRANSIT' ? 9 : 20;      /* 9×9=81<100; WALK più larga */
+  const gruppi = blocchi(punti, dimBlocco);
+  const fuori = [];
+  for (const gO of gruppi) {
+    for (const gD of gruppi) {
+      const righe = await chiamataMatrice(gO, gD, modo);
+      fuori.push(...righe);
+      if (gruppi.length > 1) await new Promise(r => setTimeout(r, 300));   /* garbo verso l'API */
+    }
   }
   return fuori;
 }
@@ -106,7 +136,7 @@ async function main() {
       } catch (err) {
         console.log('✗ ' + err.message);
         if (/No active connection/i.test(err.message)) {
-          console.error('\n→ Devi autorizzare Google una volta sola:  composio link google\n');
+          console.error('\n→ Devi autorizzare Google una volta sola:  composio link google_maps\n');
           process.exit(1);
         }
       }

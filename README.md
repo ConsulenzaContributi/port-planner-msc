@@ -168,7 +168,7 @@ Di serie il motore stima gli spostamenti geometricamente. Per sostituirli con i
 tempi **veri** a piedi e coi mezzi, una volta sola:
 
 ```bash
-composio link google
+composio link google_maps
 ```
 
 ```bash
